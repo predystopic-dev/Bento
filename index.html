@@ -18,6 +18,15 @@
 		<button id="themeButton">
 			<i id="themeIcon" icon-name="moon"></i>
 		</button>
+
+		<!-- Hidden Pokemon Easter Egg - click the Pokeball! -->
+		<div id="pokeball" title="Who's that Pokemon?">
+			<div class="pokeball-top"></div>
+			<div class="pokeball-center"><div class="pokeball-button"></div></div>
+			<div class="pokeball-bottom"></div>
+		</div>
+		<div id="pokemon-toast"></div>
+
 		<div class="container">
 			<!-- Clock and Greetings  -->
 
@@ -28,6 +37,7 @@
 					<div id="minutes"></div>
 				</div>
 				<div id="greetings"></div>
+				<div id="pokemon-quote"></div>
 			</div>
 
 			<!-- Date and Weather  -->
@@ -74,6 +84,9 @@
 		<script>
 			lucide.createIcons();
 		</script>
+
+		<!-- Pokemon Easter Eggs -->
+		<script src="assets/js/pokemon.js"></script>
 	</body>
 
 	<!-- Developed and designed by Miguel Ávila: -->

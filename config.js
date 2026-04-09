@@ -17,10 +17,10 @@ const CONFIG = {
 	twelveHourFormat: false,
 
 	// Greetings
-	greetingMorning: 'Good morning!',
-	greetingAfternoon: 'Good afternoon,',
-	greetingEvening: 'Good evening,',
-	greetingNight: 'Go to Sleep!',
+	greetingMorning: 'A wild morning appears!',
+	greetingAfternoon: 'The adventure continues,',
+	greetingEvening: 'The tall grass rustles...',
+	greetingNight: 'Your Pokemon are resting,',
 
 	// Layout
 	bentoLayout: 'bento', // 'bento', 'lists', 'buttons'
@@ -59,33 +59,33 @@ const CONFIG = {
 		},
 		{
 			id: '2',
-			name: 'Mail',
-			icon: 'mail',
-			link: 'https://gmail.com/',
+			name: 'Daily.dev',
+			icon: 'rss',
+			link: 'https://app.daily.dev/',
 		},
 		{
 			id: '3',
-			name: 'Todoist',
-			icon: 'trello',
-			link: 'https://todoist.com',
-		},
-		{
-			id: '4',
-			name: 'Calendar',
-			icon: 'calendar',
-			link: 'https://calendar.google.com/calendar/r',
-		},
-		{
-			id: '5',
 			name: 'Reddit',
-			icon: 'glasses',
+			icon: 'message-circle',
 			link: 'https://reddit.com',
 		},
 		{
-			id: '6',
-			name: 'Youtube',
+			id: '4',
+			name: 'YouTube',
 			icon: 'youtube',
 			link: 'https://youtube.com/',
+		},
+		{
+			id: '5',
+			name: 'StackOverflow',
+			icon: 'layers',
+			link: 'https://stackoverflow.com/',
+		},
+		{
+			id: '6',
+			name: 'ChatGPT',
+			icon: 'sparkles',
+			link: 'https://chat.openai.com/',
 		},
 	],
 
@@ -98,33 +98,33 @@ const CONFIG = {
 		},
 		{
 			id: '2',
-			name: 'twitter',
-			icon: 'twitter',
-			link: 'https://twitter.com/',
-		},
-		{
-			id: '3',
-			name: 'bot',
-			icon: 'bot',
+			name: 'Discord',
+			icon: 'message-square',
 			link: 'https://discord.com/app',
 		},
 		{
+			id: '3',
+			name: 'Twitch',
+			icon: 'tv',
+			link: 'https://twitch.tv/',
+		},
+		{
 			id: '4',
-			name: 'Amazon',
-			icon: 'shopping-bag',
-			link: 'https://amazon.com/',
+			name: 'HackerNews',
+			icon: 'flame',
+			link: 'https://news.ycombinator.com/',
 		},
 		{
 			id: '5',
-			name: 'Hashnode',
-			icon: 'pen-tool',
-			link: 'https://hashnode.com/',
+			name: 'DevDocs',
+			icon: 'book-open',
+			link: 'https://devdocs.io/',
 		},
 		{
 			id: '6',
-			name: 'Figma',
-			icon: 'figma',
-			link: 'https://figma.com/',
+			name: 'Monkeytype',
+			icon: 'keyboard',
+			link: 'https://monkeytype.com/',
 		},
 	],
 
@@ -135,46 +135,46 @@ const CONFIG = {
 	// First Links Container
 	firstlistsContainer: [
 		{
-			icon: 'music',
+			icon: 'code',
 			id: '1',
 			links: [
 				{
-					name: 'Kren',
-					link: 'https://www.youtube.com/playlist?list=PLgF_gQh7OwJzwtN08b5oQ_-s3uZ6IsLp-',
+					name: 'DevDocs',
+					link: 'https://devdocs.io/',
 				},
 				{
-					name: 'Underrated',
-					link: 'https://www.youtube.com/playlist?list=PLWTjjEmzNQCvKwhXmedIRmxXU-nUy7XIi',
+					name: 'MDN',
+					link: 'https://developer.mozilla.org/',
 				},
 				{
-					name: 'Japanese',
-					link: 'https://www.youtube.com/playlist?list=PLWTjjEmzNQCt67v5-tO3_sA6sCaepg5I-',
+					name: 'Can I Use',
+					link: 'https://caniuse.com/',
 				},
 				{
-					name: 'Lofi',
-					link: 'https://www.youtube.com/live/lHpYyYtkmrw?si=Cv6wNnDWWhJGlL65',
+					name: 'Regex101',
+					link: 'https://regex101.com/',
 				},
 			],
 		},
 		{
-			icon: 'coffee',
+			icon: 'gamepad-2',
 			id: '2',
 			links: [
 				{
-					name: 'Linkedin',
-					link: 'https://www.linkedin.com',
+					name: 'PokeAPI',
+					link: 'https://pokeapi.co/',
 				},
 				{
-					name: 'Hashnode',
-					link: 'https://www.hashnode.com',
+					name: 'Monkeytype',
+					link: 'https://monkeytype.com/',
 				},
 				{
-					name: 'X',
-					link: 'https://www.x.com',
+					name: 'HackerNews',
+					link: 'https://news.ycombinator.com/',
 				},
 				{
-					name: 'Slack',
-					link: 'https://www.slack.com',
+					name: 'xkcd',
+					link: 'https://xkcd.com/',
 				},
 			],
 		},
@@ -183,7 +183,7 @@ const CONFIG = {
 	// Second Links Container
 	secondListsContainer: [
 		{
-			icon: 'binary',
+			icon: 'music',
 			id: '1',
 			links: [
 				{
@@ -191,16 +191,16 @@ const CONFIG = {
 					link: 'https://www.spotify.com',
 				},
 				{
-					name: 'Reddit',
-					link: 'https://www.reddit.com',
+					name: 'Lofi Girl',
+					link: 'https://www.youtube.com/live/lHpYyYtkmrw',
 				},
 				{
-					name: 'Hashnode',
-					link: 'https://www.hashnode.com',
+					name: 'SoundCloud',
+					link: 'https://soundcloud.com/',
 				},
 				{
-					name: 'Pocket',
-					link: 'https://www.pocket.com',
+					name: 'Last.fm',
+					link: 'https://www.last.fm/',
 				},
 			],
 		},
@@ -209,20 +209,20 @@ const CONFIG = {
 			id: '2',
 			links: [
 				{
-					name: 'Front',
-					link: 'https://www.reddit.com/r/Frontend/',
-				},
-				{
-					name: 'Rust',
-					link: 'https://www.reddit.com/r/rust/',
+					name: 'Trending',
+					link: 'https://github.com/trending',
 				},
 				{
 					name: 'UnixPorn',
 					link: 'https://www.reddit.com/r/unixporn/',
 				},
 				{
+					name: 'Awesome',
+					link: 'https://github.com/sindresorhus/awesome',
+				},
+				{
 					name: 'Repos',
-					link: 'https://github.com/ryuJin25',
+					link: 'https://github.com/predystopic-dev',
 				},
 			],
 		},

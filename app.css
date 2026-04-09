@@ -327,6 +327,147 @@ body {
   color: var(--sfg);
 }
 
+/* P O K E M O N  /  E M E R A L D */
+
+#pokemon-quote {
+  font-size: 1.4vh;
+  color: var(--fg);
+  opacity: 0.55;
+  margin-top: 1.2vh;
+  max-width: 90%;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Pokeball - bottom left corner */
+#pokeball {
+  position: fixed;
+  bottom: 1.5em;
+  left: 1.5em;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  z-index: 100;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--fg);
+  opacity: 0.35;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#pokeball:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.pokeball-top {
+  height: 45%;
+  background: #ee1515;
+}
+
+.pokeball-center {
+  height: 10%;
+  background: var(--fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokeball-button {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 2px solid var(--fg);
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.pokeball-bottom {
+  height: 45%;
+  background: #fff;
+}
+
+.pokeball-shake {
+  animation: pokeball-wobble 0.6s ease-in-out;
+}
+
+@keyframes pokeball-wobble {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-20deg); }
+  40% { transform: rotate(20deg); }
+  60% { transform: rotate(-15deg); }
+  80% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Pokemon toast notification */
+#pokemon-toast {
+  position: fixed;
+  bottom: 4em;
+  left: 1.5em;
+  background: var(--cards);
+  color: var(--fg);
+  padding: 0.8em 1.2em;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: 1.4vh;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s, transform 0.4s;
+  pointer-events: none;
+  z-index: 100;
+}
+
+#pokemon-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#pokemon-toast img {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+}
+
+/* Emerald Mode - activated via Konami code */
+.emerald-mode {
+  --accent: #4fbf6a !important;
+}
+
+.emerald-mode .card:hover {
+  box-shadow: 0 10px 20px rgba(79, 191, 106, 0.3);
+}
+
+.emerald-mode #pokeball {
+  opacity: 1;
+}
+
+.emerald-mode .pokeball-top {
+  background: #2d8b4e;
+}
+
+/* Subtle pokeball pattern on button hover */
+.button:hover::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sfg);
+  opacity: 0.3;
+  bottom: 6px;
+  right: 6px;
+}
+
+.button {
+  position: relative;
+}
+
 /* M E D I A - Q U E R I E S */
 
 @media only screen and (max-width: 68.75em) {
@@ -360,5 +501,9 @@ body {
     grid-gap: 3vw;
     padding-left: 100px;
     padding-right: 100px;
+  }
+
+  #pokemon-quote {
+    display: none;
   }
 }
