@@ -390,19 +390,6 @@ body {
   pointer-events: auto;
 }
 
-/* Running Pikachu across the bottom */
-.pokemon-runner {
-  bottom: 8px;
-  height: 40px;
-  width: auto;
-  animation: pikachu-run 18s linear infinite;
-}
-
-@keyframes pikachu-run {
-  0% { left: -60px; }
-  100% { left: calc(100vw + 60px); }
-}
-
 /* Snorlax sleeping - bottom right */
 .pokemon-snorlax {
   bottom: 10px;
@@ -422,11 +409,11 @@ body {
   50% { transform: scaleY(1.03); }
 }
 
-/* Cleffa bouncing - top left area */
+/* Cleffa - top left, small */
 .pokemon-cleffa {
-  top: 12px;
-  left: 15px;
-  height: 50px;
+  top: 10px;
+  left: 12px;
+  height: 30px;
   width: auto;
   cursor: pointer;
   animation: cleffa-bounce 3s ease-in-out infinite;
@@ -434,14 +421,14 @@ body {
 
 @keyframes cleffa-bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-5px); }
 }
 
-/* Mudkip - bottom left near pokeball */
+/* Mudkip - top right corner */
 .pokemon-mudkip {
-  bottom: 10px;
-  left: 55px;
-  height: 30px;
+  top: 10px;
+  right: 50px;
+  height: 24px;
   width: auto;
   cursor: pointer;
   animation: mudkip-wiggle 5s ease-in-out infinite;
@@ -449,8 +436,25 @@ body {
 
 @keyframes mudkip-wiggle {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-3deg); }
-  75% { transform: rotate(3deg); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(4deg); }
+}
+
+/* Wooper - bottom left, happy bounce */
+.pokemon-wooper {
+  bottom: 10px;
+  left: 60px;
+  height: 35px;
+  width: auto;
+  cursor: pointer;
+  animation: wooper-hop 2.5s ease-in-out infinite;
+}
+
+@keyframes wooper-hop {
+  0%, 100% { transform: translateY(0) scaleX(1); }
+  30% { transform: translateY(-8px) scaleX(1.02); }
+  50% { transform: translateY(0) scaleX(0.98); }
+  70% { transform: translateY(-4px) scaleX(1.01); }
 }
 
 /* Pokeball - bottom left corner */
@@ -637,7 +641,8 @@ body {
 
   .pokemon-snorlax,
   .pokemon-cleffa,
-  .pokemon-mudkip {
+  .pokemon-mudkip,
+  .pokemon-wooper {
     display: none;
   }
 }

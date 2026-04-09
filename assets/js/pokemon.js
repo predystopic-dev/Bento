@@ -114,6 +114,32 @@ if (cleffaEl) {
 	});
 }
 
+// ── Wooper click — happy wave ─────────────────────────
+
+const wooperEl = document.querySelector('.pokemon-wooper');
+const wooperQuotes = [
+	'Wooper used Splash! Nothing happened!',
+	'Wooper is just vibing~',
+	'Wooper wants to say hi!',
+	'Wooper used Water Gun! ...on your screen!',
+];
+
+if (wooperEl) {
+	wooperEl.style.pointerEvents = 'auto';
+	wooperEl.addEventListener('click', () => {
+		const toast = document.getElementById('pokemon-toast');
+		if (toast) {
+			const quote = wooperQuotes[Math.floor(Math.random() * wooperQuotes.length)];
+			toast.innerHTML = `
+				<img src="assets/wooper-pokemon.gif" alt="Wooper" />
+				<span>${quote}</span>
+			`;
+			toast.classList.add('show');
+			setTimeout(() => toast.classList.remove('show'), 3000);
+		}
+	});
+}
+
 // ── Pokeball click — encounter a random Pokemon ─────────
 
 const pokeball = document.getElementById('pokeball');
