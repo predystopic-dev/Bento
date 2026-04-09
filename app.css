@@ -1,54 +1,52 @@
-/* 
+/*
 // ╔╗ ╔═╗╔╗╔╔╦╗╔═╗
 // ╠╩╗║╣ ║║║ ║ ║ ║
-// ╚═╝╚═╝╝╚╝ ╩ ╚═╝ 
+// ╚═╝╚═╝╝╚╝ ╩ ╚═╝
 */
 
 /* V A R I A B L E S */
-/*Manrope, Rethink Sans*/
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap'); Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap');
 
 :root {
   /* Font Size */
-  --fg-primary: 12vh; /* Time and Greetings */
-  --fg-secondary: 3vh; /* Greetings and Weather widger */
-  --fg-date: 8vh; /* Date */
-  --fg-list: 2vh; /* Links List */
-  --icon: 3vh; /* Icon Size */
+  --fg-primary: 12vh;
+  --fg-secondary: 3vh;
+  --fg-date: 8vh;
+  --fg-list: 2vh;
+  --icon: 3vh;
 
   /* Fonts Color */
-  --fg: #101010; /* Foreground color */
-  --sfg: #151515; /* Sceondary Foreground color */
+  --fg: #1a2a3a;
+  --sfg: #0f1a2a;
 
-  /* Light Colors  */
-  --accent: #6e95bd; /* Hover color */
-  --background: #c8e6f7; /* Background color */
-  --cards: #c8cef7; /* Cards color */
+  /* Light Colors — cozy pastel blues + emerald accent */
+  --accent: #5db88a;
+  --background: #c8e6f7;
+  --cards: #b8d4ef;
 
   /* Image background  */
-  --imgbg: url(assets/background.jpg); /* Image URL */
+  --imgbg: url(assets/background.jpg);
   --imgcol: linear-gradient(
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.7)
-  ); /* Filter color */
+  );
 }
 
 .darktheme {
-  /* Dark Colors  */
-  --accent: #6e95bd; /* Hover color */
-  --background: #101010; /* Background color */
-  --cards: #151515; /* Cards color */
+  /* Dark Colors — deep cozy blue + emerald accent */
+  --accent: #5db88a;
+  --background: #0e1621;
+  --cards: #162030;
 
   /* Fonts Color */
-  --fg: #dfdddd; /* Foreground color */
-  --sfg: #151515; /* Secondary Foreground color */
+  --fg: #c8ddf0;
+  --sfg: #0e1621;
 
   /* Image background  */
   --imgcol: linear-gradient(
     rgba(0, 0, 0, 0.85),
     rgba(0, 0, 0, 0.85)
-  ); /* Filter color */
+  );
 }
 
 /* S T Y L E S */
@@ -68,6 +66,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .notransition {
@@ -91,6 +90,7 @@ body {
   border: none;
   cursor: pointer;
   background-color: #00000000;
+  z-index: 50;
 }
 
 #themeIcon {
@@ -106,17 +106,18 @@ body {
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 30px;
   padding: 20px;
+  z-index: 1;
 }
 
 .card {
   background-color: var(--cards);
-  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
-  border-radius: 2px;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
 }
 
 .card:hover {
   transform: translateY(-0.2rem);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 15px rgba(93, 184, 138, 0.2);
 }
 
 .timeBlock {
@@ -135,6 +136,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .date {
@@ -240,6 +242,8 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+  position: relative;
+  text-decoration: none;
 }
 
 .buttonIcon {
@@ -279,6 +283,19 @@ body {
   stroke: var(--sfg);
 }
 
+/* Tiny pokeball on button hover */
+.button:hover::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sfg);
+  opacity: 0.25;
+  bottom: 5px;
+  right: 5px;
+}
+
 .listsContainer {
   width: 100%;
   height: 100%;
@@ -305,7 +322,6 @@ body {
   grid-row: 1 / span 2;
 }
 .listIcon {
-  /* margin-top: 3vh; */
   margin-bottom: 2vh;
   color: var(--fg);
   width: var(--icon);
@@ -317,7 +333,7 @@ body {
   color: var(--fg);
   margin-top: 1vh;
   padding: 8px 12px;
-  border-radius: 2px;
+  border-radius: 4px;
   font-weight: bold;
   text-align: center;
   width: 80%;
@@ -327,17 +343,114 @@ body {
   color: var(--sfg);
 }
 
-/* P O K E M O N  /  E M E R A L D */
+/* ═══════════════════════════════════════════
+   P O K E M O N  /  E M E R A L D   T H E M E
+   ═══════════════════════════════════════════ */
 
+/* Pokemon quote under greeting */
 #pokemon-quote {
-  font-size: 1.4vh;
+  font-size: 1.3vh;
   color: var(--fg);
-  opacity: 0.55;
+  opacity: 0.45;
   margin-top: 1.2vh;
-  max-width: 90%;
+  max-width: 85%;
   text-align: center;
   font-style: italic;
   line-height: 1.6;
+}
+
+/* Jirachi in weather block */
+.weather-pokemon {
+  width: 50px;
+  height: 50px;
+  margin-top: 8px;
+  opacity: 0.6;
+  image-rendering: pixelated;
+  transition: opacity 0.3s, transform 0.4s;
+}
+
+.weather-pokemon:hover {
+  opacity: 1;
+  transform: scale(1.3) rotate(-5deg);
+}
+
+/* Decorative Pokemon GIFs */
+.pokemon-deco {
+  position: fixed;
+  z-index: 0;
+  image-rendering: pixelated;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+/* They fade in after page loads (via JS) */
+.pokemon-deco.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Running Pikachu across the bottom */
+.pokemon-runner {
+  bottom: 8px;
+  height: 40px;
+  width: auto;
+  animation: pikachu-run 18s linear infinite;
+}
+
+@keyframes pikachu-run {
+  0% { left: -60px; }
+  100% { left: calc(100vw + 60px); }
+}
+
+/* Snorlax sleeping - bottom right */
+.pokemon-snorlax {
+  bottom: 10px;
+  right: 20px;
+  height: 65px;
+  width: auto;
+  cursor: pointer;
+  animation: snorlax-breathe 4s ease-in-out infinite;
+}
+
+.pokemon-snorlax:hover {
+  opacity: 0.9 !important;
+}
+
+@keyframes snorlax-breathe {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.03); }
+}
+
+/* Cleffa bouncing - top left area */
+.pokemon-cleffa {
+  top: 12px;
+  left: 15px;
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  animation: cleffa-bounce 3s ease-in-out infinite;
+}
+
+@keyframes cleffa-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Mudkip - bottom left near pokeball */
+.pokemon-mudkip {
+  bottom: 10px;
+  left: 55px;
+  height: 30px;
+  width: auto;
+  cursor: pointer;
+  animation: mudkip-wiggle 5s ease-in-out infinite;
+}
+
+@keyframes mudkip-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
 }
 
 /* Pokeball - bottom left corner */
@@ -345,20 +458,20 @@ body {
   position: fixed;
   bottom: 1.5em;
   left: 1.5em;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
   z-index: 100;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid var(--fg);
-  opacity: 0.35;
+  opacity: 0.3;
   transition: opacity 0.3s, transform 0.3s;
 }
 
 #pokeball:hover {
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
 .pokeball-top {
@@ -375,8 +488,8 @@ body {
 }
 
 .pokeball-button {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   background: #fff;
   border: 2px solid var(--fg);
   border-radius: 50%;
@@ -405,22 +518,23 @@ body {
 /* Pokemon toast notification */
 #pokemon-toast {
   position: fixed;
-  bottom: 4em;
+  bottom: 4.5em;
   left: 1.5em;
   background: var(--cards);
   color: var(--fg);
-  padding: 0.8em 1.2em;
+  padding: 0.7em 1.1em;
   border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 0.6em;
-  font-size: 1.4vh;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  font-size: 1.3vh;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--accent);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s, transform 0.4s;
   pointer-events: none;
-  z-index: 100;
+  z-index: 200;
 }
 
 #pokemon-toast.show {
@@ -436,11 +550,16 @@ body {
 
 /* Emerald Mode - activated via Konami code */
 .emerald-mode {
-  --accent: #4fbf6a !important;
+  --accent: #3dd68c !important;
+  --cards: #a8d8c8 !important;
+}
+
+.emerald-mode.darktheme {
+  --cards: #142e24 !important;
 }
 
 .emerald-mode .card:hover {
-  box-shadow: 0 10px 20px rgba(79, 191, 106, 0.3);
+  box-shadow: 0 10px 25px rgba(61, 214, 140, 0.3);
 }
 
 .emerald-mode #pokeball {
@@ -451,21 +570,30 @@ body {
   background: #2d8b4e;
 }
 
-/* Subtle pokeball pattern on button hover */
-.button:hover::after {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 1.5px solid var(--sfg);
-  opacity: 0.3;
-  bottom: 6px;
-  right: 6px;
+.emerald-mode .pokemon-deco.visible {
+  opacity: 1;
 }
 
-.button {
-  position: relative;
+/* Snorlax tooltip */
+.snorlax-tooltip {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: var(--cards);
+  color: var(--fg);
+  padding: 0.5em 0.8em;
+  border-radius: 8px;
+  font-size: 1.2vh;
+  font-style: italic;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.snorlax-tooltip.show {
+  opacity: 1;
 }
 
 /* M E D I A - Q U E R I E S */
@@ -504,6 +632,12 @@ body {
   }
 
   #pokemon-quote {
+    display: none;
+  }
+
+  .pokemon-snorlax,
+  .pokemon-cleffa,
+  .pokemon-mudkip {
     display: none;
   }
 }

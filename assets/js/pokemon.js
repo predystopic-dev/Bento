@@ -3,43 +3,59 @@
 // ┴  └─┘┴ ┴└─┘┴ ┴└─┘┘└┘
 // Pokemon / Emerald Easter Eggs
 
+// ── Quotes ──────────────────────────────────────────────
+
 const pokemonQuotes = [
-	'"I see now that the circumstances of one\'s birth are irrelevant; it is what you do with the gift of life." - Mewtwo',
-	'"The important thing is not how long you live. It is what you accomplish with your life." - Grovyle',
-	'"Strong Pokemon. Weak Pokemon. That is only the selfish perception of people." - Karen',
-	'"We do have a lot in common. The same Earth, the same air, the same sky." - Meowth',
-	'"Take charge of your destiny." - Rayquaza',
-	'"There\'s no Pokemon that can\'t be befriended." - N',
-	'"Even if we don\'t understand each other, that\'s not a reason to reject each other." - Alder',
-	'"Make your wonderful dream a reality, it will become your truth." - N',
-	'"I will show you that my love for my Pokemon conquers all." - Drake',
-	'"Believe in yourself and the Pokemon who choose you!" - Prof. Oak',
-	'"Do you want to have a Pokemon battle with all you\'ve got?" - Red',
-	'"We dreamt of creating the world\'s strongest Pokemon... and we succeeded." - Dr. Fuji',
-	'"A caterpie may change into a butterfree, but the heart that beats inside remains the same." - Brock',
-	'"The world\'s greatest Pokemon Master is waiting for me!" - Ash',
-	'"Your Pokemon journey is about to begin." - Prof. Birch',
+	'"I see now that the circumstances of one\'s birth are irrelevant; it is what you do with the gift of life." — Mewtwo',
+	'"The important thing is not how long you live. It is what you accomplish with your life." — Grovyle',
+	'"Strong Pokemon. Weak Pokemon. That is only the selfish perception of people." — Karen',
+	'"We do have a lot in common. The same Earth, the same air, the same sky." — Meowth',
+	'"Take charge of your destiny." — Rayquaza',
+	'"There\'s no Pokemon that can\'t be befriended." — N',
+	'"Even if we don\'t understand each other, that\'s not a reason to reject each other." — Alder',
+	'"Make your wonderful dream a reality, it will become your truth." — N',
+	'"Believe in yourself and the Pokemon who choose you!" — Prof. Oak',
+	'"A caterpie may change into a butterfree, but the heart that beats inside remains the same." — Brock',
+	'"Your Pokemon journey is about to begin." — Prof. Birch',
+	'"The world is full of mysteries. Go see them with your own eyes!" — Steven Stone',
+	'"Do you believe in the potential of Pokemon?" — Cynthia',
+	'"Every journey begins with a single step." — Prof. Elm',
+	'"I will grind down my pokemon with effort and power!" — Brendan',
 ];
 
-const starterPokemon = [
-	{ name: 'Treecko', id: 252 },
-	{ name: 'Torchic', id: 255 },
-	{ name: 'Mudkip', id: 258 },
-	{ name: 'Pikachu', id: 25 },
-	{ name: 'Rayquaza', id: 384 },
-	{ name: 'Gardevoir', id: 282 },
-	{ name: 'Salamence', id: 373 },
-	{ name: 'Metagross', id: 376 },
-	{ name: 'Absol', id: 359 },
-	{ name: 'Blaziken', id: 257 },
-	{ name: 'Swampert', id: 260 },
-	{ name: 'Sceptile', id: 254 },
-	{ name: 'Flygon', id: 330 },
-	{ name: 'Milotic', id: 350 },
-	{ name: 'Aggron', id: 306 },
+// ── Local GIF pool for encounters ───────────────────────
+
+const localPokemonGifs = [
+	{ name: 'Pikachu', src: 'assets/run-pikachu.gif' },
+	{ name: 'Mudkip', src: 'assets/mudkip-pokemon.gif' },
+	{ name: 'Snorlax', src: 'assets/snorlax-pokemon.gif' },
+	{ name: 'Charizard', src: 'assets/charizard-pokemon.gif' },
+	{ name: 'Bulbasaur', src: 'assets/bulbizarre.gif' },
+	{ name: 'Charmander', src: 'assets/shiny-charmander-pokemon.gif' },
+	{ name: 'Mew', src: 'assets/mew-pokemon.gif' },
+	{ name: 'Jirachi', src: 'assets/jirachi-pokémon.gif' },
+	{ name: 'Darkrai', src: 'assets/darkrai-pokémon-darkrai.gif' },
+	{ name: 'Chansey', src: 'assets/chansey-pokemon.gif' },
+	{ name: 'Cleffa', src: 'assets/pokemon-cleffa.gif' },
+	{ name: 'Wooper', src: 'assets/wooper-pokemon.gif' },
+	{ name: 'Scorbunny', src: 'assets/scorbunny-pokemon.gif' },
+	{ name: 'Gibble', src: 'assets/pokemon-gibble.gif' },
+	{ name: 'Politoed', src: 'assets/politoed-pokemon.gif' },
+	{ name: 'Skorupi', src: 'assets/skorupi-pokemon.gif' },
+	{ name: 'Blastoise', src: 'assets/blastoise-pokemon-pokemon.gif' },
 ];
 
-// Show a random Pokemon quote below the greeting
+const snorlaxQuotes = [
+	'Snorlax is blocking the path!',
+	'Zzz... Snorlax is fast asleep...',
+	'You need a Poke Flute to wake it!',
+	'Snorlax used Rest!',
+	'Snorlax dreams of hamburgers...',
+	'*snore* *snore* *munch munch*',
+];
+
+// ── Quote rotator ───────────────────────────────────────
+
 const showQuote = () => {
 	const quoteEl = document.getElementById('pokemon-quote');
 	if (quoteEl) {
@@ -48,37 +64,85 @@ const showQuote = () => {
 	}
 };
 
-// Rotate quotes every 30 seconds
 showQuote();
-setInterval(showQuote, 30000);
+setInterval(showQuote, 25000);
 
-// Pokeball click easter egg - shows a random Pokemon sprite
+// ── Fade in decorative Pokemon after load ───────────────
+
+window.addEventListener('load', () => {
+	setTimeout(() => {
+		document.querySelectorAll('.pokemon-deco').forEach((el, i) => {
+			setTimeout(() => el.classList.add('visible'), i * 400);
+		});
+	}, 800);
+});
+
+// ── Snorlax click interaction ───────────────────────────
+
+const snorlaxEl = document.querySelector('.pokemon-snorlax');
+if (snorlaxEl) {
+	// Create tooltip
+	const tooltip = document.createElement('div');
+	tooltip.className = 'snorlax-tooltip';
+	document.body.appendChild(tooltip);
+
+	snorlaxEl.style.pointerEvents = 'auto';
+	snorlaxEl.addEventListener('click', () => {
+		const quote = snorlaxQuotes[Math.floor(Math.random() * snorlaxQuotes.length)];
+		tooltip.innerText = quote;
+		tooltip.classList.add('show');
+		setTimeout(() => tooltip.classList.remove('show'), 2500);
+	});
+}
+
+// ── Cleffa click — little sparkle ───────────────────────
+
+const cleffaEl = document.querySelector('.pokemon-cleffa');
+if (cleffaEl) {
+	cleffaEl.style.pointerEvents = 'auto';
+	cleffaEl.addEventListener('click', () => {
+		// Spin animation
+		cleffaEl.style.animation = 'none';
+		cleffaEl.offsetHeight; // trigger reflow
+		cleffaEl.style.transition = 'transform 0.5s';
+		cleffaEl.style.transform = 'rotate(360deg) scale(1.3)';
+		setTimeout(() => {
+			cleffaEl.style.transform = '';
+			cleffaEl.style.transition = '';
+			cleffaEl.style.animation = 'cleffa-bounce 3s ease-in-out infinite';
+		}, 600);
+	});
+}
+
+// ── Pokeball click — encounter a random Pokemon ─────────
+
 const pokeball = document.getElementById('pokeball');
-const toast = document.getElementById('pokemon-toast');
+const toastEl = document.getElementById('pokemon-toast');
 
-if (pokeball && toast) {
+if (pokeball && toastEl) {
 	pokeball.addEventListener('click', () => {
 		pokeball.classList.add('pokeball-shake');
 
 		setTimeout(() => {
 			pokeball.classList.remove('pokeball-shake');
-			const pokemon = starterPokemon[Math.floor(Math.random() * starterPokemon.length)];
-			const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
+			const pokemon = localPokemonGifs[Math.floor(Math.random() * localPokemonGifs.length)];
 
-			toast.innerHTML = `
-				<img src="${spriteUrl}" alt="${pokemon.name}" />
+			toastEl.innerHTML = `
+				<img src="${pokemon.src}" alt="${pokemon.name}" />
 				<span>A wild <strong>${pokemon.name}</strong> appeared!</span>
 			`;
-			toast.classList.add('show');
+			toastEl.classList.add('show');
 
 			setTimeout(() => {
-				toast.classList.remove('show');
+				toastEl.classList.remove('show');
 			}, 3500);
 		}, 600);
 	});
 }
 
-// Konami code easter egg (up up down down left right left right b a)
+// ── Konami code — Emerald Mode ──────────────────────────
+// up up down down left right left right B A
+
 let konamiProgress = 0;
 const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
 
@@ -87,19 +151,53 @@ document.addEventListener('keydown', (e) => {
 		konamiProgress++;
 		if (konamiProgress === konamiCode.length) {
 			konamiProgress = 0;
-			// Activate super secret Emerald mode
 			document.body.classList.toggle('emerald-mode');
-			const toast = document.getElementById('pokemon-toast');
-			if (toast) {
-				toast.innerHTML = `
-					<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png" alt="Rayquaza" />
-					<span><strong>EMERALD MODE ACTIVATED!</strong><br>Rayquaza descends!</span>
+
+			if (toastEl) {
+				const isOn = document.body.classList.contains('emerald-mode');
+				toastEl.innerHTML = `
+					<img src="assets/charizard-pokemon.gif" alt="Rayquaza" />
+					<span><strong>${isOn ? 'EMERALD MODE ACTIVATED!' : 'Emerald mode deactivated.'}</strong>
+					<br>${isOn ? 'Rayquaza descends from the ozone layer!' : 'Back to normal...'}</span>
 				`;
-				toast.classList.add('show');
-				setTimeout(() => toast.classList.remove('show'), 4000);
+				toastEl.classList.add('show');
+				setTimeout(() => toastEl.classList.remove('show'), 4000);
 			}
 		}
 	} else {
 		konamiProgress = 0;
 	}
 });
+
+// ── Secret: click the clock 5 times to change greeting ──
+
+let clockClicks = 0;
+const timeBlock = document.querySelector('.timeBlock .clock');
+const trainerNames = [
+	'Trainer', 'Champion', 'Ace Trainer', 'Pokemon Master',
+	'Bug Catcher', 'Gym Leader', 'Elite Four',
+];
+
+if (timeBlock) {
+	timeBlock.style.cursor = 'default';
+	timeBlock.addEventListener('click', () => {
+		clockClicks++;
+		if (clockClicks >= 5) {
+			clockClicks = 0;
+			const greetEl = document.getElementById('greetings');
+			if (greetEl) {
+				const title = trainerNames[Math.floor(Math.random() * trainerNames.length)];
+				greetEl.innerText = `Level up, ${title}!`;
+				setTimeout(() => {
+					// Restore normal greeting after 4 seconds
+					const hour = new Date().getHours();
+					const name = CONFIG.name;
+					if (hour >= 23 || hour < 6) greetEl.innerText = CONFIG.greetingNight + '\xa0' + name;
+					else if (hour >= 6 && hour < 12) greetEl.innerText = CONFIG.greetingMorning + '\xa0' + name;
+					else if (hour >= 12 && hour < 17) greetEl.innerText = CONFIG.greetingAfternoon + '\xa0' + name;
+					else greetEl.innerText = CONFIG.greetingEvening + '\xa0' + name;
+				}, 4000);
+			}
+		}
+	});
+}

@@ -26,12 +26,12 @@ const CONFIG = {
 	bentoLayout: 'bento', // 'bento', 'lists', 'buttons'
 
 	// Weather
-	weatherKey: '288752458e9b0130f398aa44af330a02', // Write here your API Key
+	weatherKey: '288752458e9b0130f398aa44af330a02',
 	weatherIcons: 'Nord', // 'Onedark', 'Nord', 'Dark', 'White'
-	weatherUnit: 'C', // 'F', 'C'
-	language: 'en', // More languages in https://openweathermap.org/current#multi
+	weatherUnit: 'C',
+	language: 'en',
 
-	trackLocation: false, // If false or an error occurs, the app will use the lat/lon below
+	trackLocation: false,
 	defaultLatitude: '22.719568',
 	defaultLongitude: '75.857727',
 
@@ -133,44 +133,45 @@ const CONFIG = {
 	// ┴─┘┴└─┘ ┴ └─┘
 
 	// First Links Container
+	// (right side in bento layout — placeholder for future music visualizer / pokemon player)
 	firstlistsContainer: [
 		{
-			icon: 'code',
+			icon: 'swords',
 			id: '1',
 			links: [
 				{
-					name: 'DevDocs',
-					link: 'https://devdocs.io/',
+					name: 'Showdown',
+					link: 'https://play.pokemonshowdown.com/',
 				},
 				{
-					name: 'MDN',
-					link: 'https://developer.mozilla.org/',
+					name: 'Bulbapedia',
+					link: 'https://bulbapedia.bulbagarden.net/',
 				},
-				{
-					name: 'Can I Use',
-					link: 'https://caniuse.com/',
-				},
-				{
-					name: 'Regex101',
-					link: 'https://regex101.com/',
-				},
-			],
-		},
-		{
-			icon: 'gamepad-2',
-			id: '2',
-			links: [
 				{
 					name: 'PokeAPI',
 					link: 'https://pokeapi.co/',
 				},
 				{
-					name: 'Monkeytype',
-					link: 'https://monkeytype.com/',
+					name: 'Serebii',
+					link: 'https://www.serebii.net/',
+				},
+			],
+		},
+		{
+			icon: 'headphones',
+			id: '2',
+			links: [
+				{
+					name: 'Spotify',
+					link: 'https://open.spotify.com/',
 				},
 				{
-					name: 'HackerNews',
-					link: 'https://news.ycombinator.com/',
+					name: 'Lofi Girl',
+					link: 'https://www.youtube.com/live/lHpYyYtkmrw',
+				},
+				{
+					name: 'Monkeytype',
+					link: 'https://monkeytype.com/',
 				},
 				{
 					name: 'xkcd',

@@ -2,13 +2,14 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Home</title>
-		<link rel=" shortcut icon" type="image/png" href="assets/icons/favicon.png" />
+		<title>Emerald Den</title>
+		<link rel="shortcut icon" type="image/png" href="assets/icons/favicon.png" />
 		<link rel="stylesheet" href="app.css" />
-		<script src="https://unpkg.com/lucide@latest"></script>
+		<!-- Pinned Lucide version - latest removed brand icons (github, youtube, etc.) -->
+		<script src="https://unpkg.com/lucide@0.259.0"></script>
 	</head>
 
-	<!-- 
+	<!--
       ╔╗ ╔═╗╔╗╔╔╦╗╔═╗
       ╠╩╗║╣ ║║║ ║ ║ ║
       ╚═╝╚═╝╝╚╝ ╩ ╚═╝
@@ -19,13 +20,19 @@
 			<i id="themeIcon" icon-name="moon"></i>
 		</button>
 
-		<!-- Hidden Pokemon Easter Egg - click the Pokeball! -->
+		<!-- Pokeball Easter Egg -->
 		<div id="pokeball" title="Who's that Pokemon?">
 			<div class="pokeball-top"></div>
 			<div class="pokeball-center"><div class="pokeball-button"></div></div>
 			<div class="pokeball-bottom"></div>
 		</div>
 		<div id="pokemon-toast"></div>
+
+		<!-- Decorative Pokemon GIFs -->
+		<img src="assets/pikachu-running-pikachu.gif" class="pokemon-deco pokemon-runner" alt="" />
+		<img src="assets/snorlax-pixel.gif" class="pokemon-deco pokemon-snorlax" alt="" title="Snorlax is blocking the path!" />
+		<img src="assets/pokemon-cleffa.gif" class="pokemon-deco pokemon-cleffa" alt="" title="Cleffa wants to be your friend!" />
+		<img src="assets/mudkip-tiny.gif" class="pokemon-deco pokemon-mudkip" alt="" title="So I heard you like Mudkips..." />
 
 		<div class="container">
 			<!-- Clock and Greetings  -->
@@ -58,6 +65,7 @@
 						<p></p>
 					</div>
 				</div>
+				<img src="assets/jirachi-pokémon.gif" class="weather-pokemon" alt="" title="Jirachi grants your weather wish!" />
 			</div>
 
 			<div class="linksBlock" id="linksBlock">
